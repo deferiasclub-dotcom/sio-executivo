@@ -20,8 +20,8 @@ const abasExecutivo = [
   {
     id: "dashboard",
     nome: "Aba 1: Dashboard & Balcão ao Vivo",
-    visual: "No Dashboard você acompanha seus KPIs de Lojas Ativas e Usuários Indicados. E aqui fica a sua ferramenta mais poderosa de fechamento de vendas: a 'Demonstração de Bonificação no Balcão'! Nela você digita o CPF do dono da loja, simula uma venda de R$ 100 com 7% de cashback, vê a divisão de 80% para o cliente em tempo real e clica em 'CONFIRMAR CASHBACK' para o comerciante ver o saldo entrando ao vivo no celular dele!",
-    fonico: "No Dashboard você acompanha seus indicadores de Lojas Ativas e Usuários Indicados. E aqui fica a sua ferramenta mais poderosa de fechamento de vendas: a Demonstração de Bonificação no Balcão! Nela você digita o C P F do dono da loja, simula uma venda de cem reais com sete por cento de cashback, vê a divisão de oitenta por cento para o cliente em tempo real e clica em Confirmar Cashback para o comerciante ver o saldo entrando ao vivo no celular dele!"
+    visual: "No Dashboard você acompanha seus KPIs de Lojas Ativas e Usuários Indicados. E aqui fica a sua ferramenta mais poderosa de fechamento de vendas: a 'Demonstração de Bonificação no Balcão'! Nela você digita o CPF do dono da loja, simula uma venda de R$ 100 com 7% de cashback, vê a divisão de 80% para o cliente em tempo real e clica em 'CONFIRMAR CASHBACK' para o comerciante ver o saldo entrando ao vivo no celular dele! Atenção à regra de segurança: a demonstração só é realizada se ambos estiverem no mesmo ambiente — ou ambos em Sandbox com dinheiro fictício de treinamento, ou ambos em Produção com dinheiro real!",
+    fonico: "No Dashboard você acompanha seus indicadores de Lojas Ativas e Usuários Indicados. E aqui fica a sua ferramenta mais poderosa de fechamento de vendas: a Demonstração de Bonificação no Balcão! Nela você digita o C P F do dono da loja, simula uma venda de cem reais com sete por cento de cashback, vê a divisão de oitenta por cento para o cliente em tempo real e clica em Confirmar Cashback para o comerciante ver o saldo entrando ao vivo no celular dele! Atenção à regra de segurança: a demonstração só é realizada se ambos estiverem no mesmo ambiente. Ou ambos em Sandbox com dinheiro fictício de treinamento, ou ambos em Produção com dinheiro real!"
   },
   {
     id: "rede",
@@ -32,8 +32,8 @@ const abasExecutivo = [
   {
     id: "expansao",
     nome: "Aba 3: Expansão (Link Comercial)",
-    visual: "Esta é a sua ferramenta oficial de prospecção! Aqui você encontra seu Link Comercial. Você pode personalizar o final do endereço digitando seu nome no campo de slug, clicar em 'SALVAR SLUG' e depois usar o botão 'COPIAR LINK COMERCIAL' para enviar por WhatsApp para donos de comércios (CNPJ) ou clientes finais (CPF).",
-    fonico: "Esta é a sua ferramenta oficial de prospecção! Aqui você encontra seu Link Comercial. Você pode personalizar o final do endereço digitando seu nome no campo de slug, clicar em Salvar Slug e depois usar o botão Copiar Link Comercial para enviar por WhatsApp para donos de comércios ou clientes finais."
+    visual: "Esta é a sua ferramenta oficial de prospecção! Aqui você encontra seu Link Comercial. Você pode personalizar o final do endereço digitando seu nome no campo de slug, clicar em 'SALVAR SLUG' e depois usar o botão 'COPIAR LINK COMERCIAL' para enviar por WhatsApp para donos de comércios (CPF), comércios (CNPJ) ou clientes finais (CPF).",
+    fonico: "Esta é a sua ferramenta oficial de prospecção! Aqui você encontra seu Link Comercial. Você pode personalizar o final do endereço digitando seu nome no campo de slug, clicar em Salvar Slug e depois usar o botão Copiar Link Comercial para enviar por WhatsApp para donos de comércios pelo C P F, comércios pelo C N P J ou clientes finais pelo C P F."
   },
   {
     id: "financas",
@@ -268,10 +268,11 @@ export default function ExecutivoTrainingMaster() {
       setItemCarteiraSelecionado(item);
       tocarVoz(`Este é o botão ${item.nome}: ${item.visual}`, `Este é o botão ${item.nome}. ${item.fonico}`);
     } else {
-      const fim = "Parabéns, Executivo! Você completou o tour pela sua Carteira Digital. Se quiser, clique em qualquer botão para ouvir sua explicação novamente!";
+      const fimVisual = "Parabéns, Executivo! Você completou o treinamento. Dica de ouro de pós-venda: assista também ao Tutorial do Lojista para aprender a configurar o painel da loja e orientar o comerciante no credenciamento com total segurança!";
+      const fimFonico = "Parabéns, Executivo! Você completou o treinamento. Dica de ouro de pós-venda: assista também ao Tutorial do Lojista para aprender a configurar o painel da loja e orientar o comerciante no credenciamento com total segurança!";
       setIndicePassoCarteira(-1);
       setItemCarteiraSelecionado(null);
-      tocarVoz(fim, fim);
+      tocarVoz(fimVisual, fimFonico);
     }
   };
 
