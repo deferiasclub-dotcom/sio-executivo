@@ -287,14 +287,16 @@ export default function ExecutivoTrainingMaster() {
   };
 
   const handleEncerrarTreinamento = () => {
-    if (confirm("Deseja realmente encerrar a sessão de treinamento do executivo?")) {
-      setTelaAtiva('login');
-      setEtapaLogin(0);
-      setIndicePassoPainel(-1);
-      setIndicePassoCarteira(-1);
-      const v = "Treinamento do executivo encerrado com sucesso! Agradecemos a sua dedicação. Até a próxima!";
-      const f = "Treinamento do executivo encerrado com sucesso! Agradecemos a sua dedicação. Até a próxima!";
+    if (confirm("Deseja realmente encerrar o treinamento e fechar esta janela?")) {
+      const v = "Treinamento do executivo encerrado com sucesso! Agradecemos a sua dedicação. Fechando a janela em instantes. Até a próxima!";
+      const f = "Treinamento do executivo encerrado com sucesso! Agradecemos a sua dedicação. Fechando a janela em instantes. Até a próxima!";
       tocarVoz(v, f);
+
+      // Aguarda a Francisca terminar de falar (5,5 segundos) e fecha a aba automaticamente!
+      setTimeout(() => {
+        window.close();
+        window.location.href = "about:blank";
+      }, 5500);
     }
   };
 
